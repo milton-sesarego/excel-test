@@ -6,12 +6,10 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DevelarCommonsModule } from './develar-commons/develar-commons.module';
-import { ShowExcelComponent } from './carga-excel/show-excel/show-excel.component'
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ShowExcelComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

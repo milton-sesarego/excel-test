@@ -6,7 +6,6 @@ import { Asset } from '../develar-entities';
 
 const URL = 'api/upload/assetupload';
 
-
 @Component({
   selector: 'assets-upload',
   templateUrl: './upload.component.html',
