@@ -3,7 +3,7 @@ import { Asset, assetModel } from '../develar-entities';
 import { Observable ,  Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-carga-excel',
+  selector: 'carga-excel',
   templateUrl: './carga-excel.component.html',
   styleUrls: ['./carga-excel.component.scss']
 })
