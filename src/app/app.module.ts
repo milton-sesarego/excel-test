@@ -1,21 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { MatCardModule } from '@angular/material';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
+import { DevelarCommonsModule } from './develar-commons/develar-commons.module';
+import { ShowExcelComponent } from './carga-excel/show-excel/show-excel.component'
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShowExcelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MatCardModule
+    DevelarCommonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

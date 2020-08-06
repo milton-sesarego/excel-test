@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GenericDialogComponent } from './generic-dialog.component';
+import { ShowExcelComponent } from './show-excel.component';
 
-describe('GenericDialogComponent', () => {
-  let component: GenericDialogComponent;
-  let fixture: ComponentFixture<GenericDialogComponent>;
+describe('ShowExcelComponent', () => {
+  let component: ShowExcelComponent;
+  let fixture: ComponentFixture<ShowExcelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GenericDialogComponent ]
+      declarations: [ ShowExcelComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GenericDialogComponent);
+    fixture = TestBed.createComponent(ShowExcelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
