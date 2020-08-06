@@ -4,7 +4,8 @@ import { Subject } from 'rxjs';
 
 import { Asset } from '../develar-entities';
 
-const URL = 'api/upload/assetupload';
+//const URL = 'api/upload/assetupload';
+const URL = 'http://localhost:3000/fileupload/';
 
 @Component({
   selector: 'assets-upload',
