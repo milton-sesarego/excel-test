@@ -1,20 +1,23 @@
-Visor Excel
 
-<div *ngIf = "asset">
-Nombre de archivo: {{asset.assetId}}
-</div>
+<mat-card>
+    <mat-card-header>
+        Visor Excel
 
-<input id="uploadBtn" type="file" (change)="readExcel($event)" 
-           class="upload input-common" required />
+        <div *ngIf = "asset">
+        Nombre de archivo: {{asset.assetId}}
+        </div>
 
-<table>
-    <tr *ngFor="let row of excelRows">
-        <td *ngFor="let data of row">
-            {{data}}
-        </td>
-    </tr>
+        <input id="uploadBtn" type="file" (change)="readExcel($event)" 
+                class="upload input-common" required />
 
-</table>
+    </mat-card-header>
+    <table mat-table [dataSource]="excelRows" class="mat-elevation-z8">
+        <ng-container *ngFor="let col of columnsToDisplay" [matColumnDef]="col">
+            <th mat-header-cell *matHeaderCellDef> {{col}} </th>
+            <td mat-cell *matCellDef="let element"> {{element[col]}} </td>
+        </ng-container>
 
- 
-
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    </table>
+</mat-card>

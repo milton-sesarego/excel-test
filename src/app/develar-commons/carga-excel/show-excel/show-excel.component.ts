@@ -9,8 +9,8 @@ import * as Excel from 'exceljs/dist/exceljs.min.js'
 })
 export class ShowExcelComponent implements OnInit {
   @Input() asset: Asset;
-  excelRows: Array<Object>[] = [];
-  columnsToDisplay: Array<Number>;
+  excelRows: Array<Object> = [];
+  columnsToDisplay: Array<string> = [];
 
   constructor() { }
 
@@ -31,16 +31,24 @@ export class ShowExcelComponent implements OnInit {
       workbook.xlsx.load(data)
         .then(function () {
 
-          console.log("workbook", workbook);
           const worksheet = workbook.getWorksheet(1);
           console.log('rowCount: ', worksheet.rowCount);
-          self.columnsToDisplay= new Array(worksheet.columnCount);
+          
+          for ( const x of Array(worksheet.columnCount).keys()){
+            self.columnsToDisplay.push(String.fromCharCode('A'.charCodeAt(0)+x));
+          }
 
           worksheet.eachRow(function (row, rowNumber) {
-            self.excelRows.push(Object(row.values));
-            console.log(self.excelRows);
-            
+            var obj = {}
+            row.values.forEach((d,i)=>{
+              if(i!=0){
+                obj[self.columnsToDisplay[i-1]] = d
+              }
+            })
+            self.excelRows.push(obj);
+          
           });
+          console.log(self.excelRows)
         });
     });
   }
