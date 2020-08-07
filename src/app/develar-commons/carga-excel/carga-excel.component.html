@@ -1,3 +1,7 @@
+<div id="content" #content>
+
 <assets-upload	(assetUpload)=assetUpload($event)
   				      (externalAsset)='addExternalAsset($event)' ></assets-upload>
 <show-excel [asset]="asset"></show-excel>
+</div>
+<button (click)="downloadPDF()">Export To PDF</button>

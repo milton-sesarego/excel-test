@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
 import { Asset, assetModel } from '../develar-entities';
 import { Observable ,  Subject } from 'rxjs';
+
+import jsPDF from 'jspdf';
+
 
 @Component({
   selector: 'carga-excel',
@@ -10,6 +13,28 @@ import { Observable ,  Subject } from 'rxjs';
 export class CargaExcelComponent implements OnInit {
   assets: Asset[] = [];
   asset: Asset;
+
+  @ViewChild('content', {static: false}) content: ElementRef;
+
+
+  public downloadPDF() {
+    const doc = new jsPDF();
+
+    const specialElementHandlers = {
+      '#editor': function (element, renderer) {
+        return true;
+      }
+    };
+
+    const content = this.content.nativeElement;
+
+    doc.fromHTML(content.innerHTML, 15, 15, {
+      width: 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    doc.save('test.pdf');
+  }
 
   constructor() { }
 
