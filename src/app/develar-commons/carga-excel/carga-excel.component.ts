@@ -9,6 +9,7 @@ import { Observable ,  Subject } from 'rxjs';
 })
 export class CargaExcelComponent implements OnInit {
   assets: Asset[] = [];
+  asset: Asset;
 
   constructor() { }
 
@@ -19,6 +20,7 @@ export class CargaExcelComponent implements OnInit {
     loader.subscribe(asset => {
       this.assets.unshift(asset);
       console.log(asset)
+      this.asset= asset;
     });
   }
 
@@ -26,6 +28,7 @@ export class CargaExcelComponent implements OnInit {
     loader.subscribe(url =>{
       let asset = assetModel.initNewExternalAsset(url);
       this.assets.unshift(asset);
+      this.asset = asset;
     })
   }
 
