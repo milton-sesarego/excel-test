@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CargaExcelComponent } from './develar-commons/carga-excel/carga-excel.component';
+import { SaludComponent } from './salud/salud.component';
 
 const routes: Routes = [
-  { path: 'carga-excel', component: CargaExcelComponent },
+  { path: 'salud', component: SaludComponent },
 ];
 
 @NgModule({
