@@ -23,17 +23,18 @@ export class ShowExcelComponent implements OnInit {
   setHeader(value: boolean){
     this.primeraFilaComoHeader = value;
     if (this.arryBuffer){
-      this.clearData()
+      this.clearData();
       this.loadXLSX();
     }
   }
-  
+
   clearData(){
     this.columnsToDisplay = []
     this.dataRows = []
   }
 
   uploadFile(event) {
+    this.clearData();
     const target: DataTransfer = <DataTransfer>(event.target);
 
     if (target.files.length !== 1) {
@@ -54,14 +55,14 @@ export class ShowExcelComponent implements OnInit {
     function loadData(){
       const worksheet = self.workbook.getWorksheet(1);
       console.log('rowCount: ', worksheet.rowCount);
-      
+
       if (!self.primeraFilaComoHeader){
         for ( const x of Array(worksheet.columnCount).keys()){
           self.columnsToDisplay.push(String.fromCharCode('A'.charCodeAt(0)+x));
         }
       }else{
         for ( const x of Array(worksheet.columnCount).keys()){
-          self.columnsToDisplay.push(worksheet.getRow(1).values[x+1]);
+          self.columnsToDisplay.push(""+worksheet.getRow(1).values[x+1]);
         }
       }
       var minRowNumber = 0
@@ -73,12 +74,16 @@ export class ShowExcelComponent implements OnInit {
           var obj = {}
           row.values.forEach((d,i)=>{
             if(i!=0){
-              obj[self.columnsToDisplay[i-1]] = d
+              if (d.hasOwnProperty("formula")){
+                obj[self.columnsToDisplay[i-1]] = d.result;
+              }else{
+                obj[self.columnsToDisplay[i-1]] = d;
+              }
             }
           })
           self.dataRows.push(obj);
         }
       });
     }
-  } 
+  }
 }

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SaludComponent } from './salud/salud.component';
+import { BaseComponentComponent } from './develar-commons/base-component/base-component.component';
 
 const routes: Routes = [
-  { path: 'salud', component: SaludComponent },
+  { path: 'base', component: BaseComponentComponent },
 ];
 
 @NgModule({

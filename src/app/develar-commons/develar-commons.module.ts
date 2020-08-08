@@ -8,8 +8,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { UploadComponent } from './upload/upload.component';
 import { CargaExcelComponent } from './carga-excel/carga-excel.component';
 import { ShowExcelComponent } from './carga-excel/show-excel/show-excel.component';
-import { SaludComponent } from '../salud/salud.component';
-
+import { BaseComponentComponent } from './base-component/base-component.component'
 
 @NgModule({
   imports: [
@@ -24,7 +23,7 @@ import { SaludComponent } from '../salud/salud.component';
     UploadComponent,
     CargaExcelComponent,
     ShowExcelComponent,
-    SaludComponent
+    BaseComponentComponent
   ],
   exports: [
     DevelarMaterialModule,
