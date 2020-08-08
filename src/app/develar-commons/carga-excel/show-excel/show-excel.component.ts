@@ -1,6 +1,6 @@
 import { Component, OnInit , OnChanges, Input} from '@angular/core';
 import { Asset } from '../../develar-entities';
-import * as Excel from 'exceljs/dist/exceljs.min.js'
+import * as Excel from 'exceljs'
 
 @Component({
   selector: 'show-excel',
