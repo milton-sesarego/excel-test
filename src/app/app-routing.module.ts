@@ -6,12 +6,12 @@ import { DevelarCommonsModule } from './develar-commons/develar-commons.module';
 
 
 const routes: Routes = [
-  { path: 'salud', component: SaludComponent },
+  { path: '/salud', component: SaludComponent },
 ];
 
 @NgModule({
   declarations: [SaludComponent],
-  imports: [RouterModule.forRoot(routes), CommonModule,DevelarCommonsModule],
+  imports: [RouterModule.forRoot(routes), CommonModule, DevelarCommonsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
