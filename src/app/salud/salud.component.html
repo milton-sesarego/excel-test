@@ -1,2 +1,5 @@
->Carga XLSX
-<carga-excel></carga-excel>
+<carga-excel (dataEmitter)="receiveData($event)"></carga-excel>
+
+<div *ngFor="let p of personas">
+    {{p.nombre}} {{p.apellido}} {{p.nro_documento}}
+</div>

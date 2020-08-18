@@ -7,9 +7,10 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DevelarCommonsModule } from './develar-commons/develar-commons.module';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,9 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DevelarMaterialModule } from './develar-materials.module';
 import { FileUploadModule } from 'ng2-file-upload';
 import { UploadComponent } from './upload/upload.component';
-import { CargaExcelComponent } from './carga-excel/carga-excel.component';
-import { ShowExcelComponent } from './carga-excel/show-excel/show-excel.component';
-import { SaludComponent } from '../salud/salud.component';
+import { CargaExcelModule } from './carga-excel/carga-excel.module'
 
 
 @NgModule({
@@ -19,17 +17,16 @@ import { SaludComponent } from '../salud/salud.component';
     FormsModule,
     ReactiveFormsModule,
     FileUploadModule,
+    CargaExcelModule
   ],
   declarations: [
-    UploadComponent,
-    CargaExcelComponent,
-    ShowExcelComponent,
-    SaludComponent
+    UploadComponent
   ],
   exports: [
-    DevelarMaterialModule,
+    //DevelarMaterialModule,
     FileUploadModule,
     UploadComponent,
+    CargaExcelModule
   ],
   providers: [
   ]

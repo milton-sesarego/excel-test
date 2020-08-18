@@ -1,6 +1,13 @@
-<assets-upload	(assetUpload)=assetUpload($event)
-  				      (externalAsset)='addExternalAsset($event)' ></assets-upload>
-<show-excel
-[asset] = "asset"></show-excel>
+<!--<assets-upload	(assetUpload)=assetUpload($event)
+				(externalAsset)='addExternalAsset($event)' ></assets-upload>
+-->	
+Cargar archivo excel (.xlsx)
+<input #uploadBtn hidden="true" type="file" onclick="this.value=null" (change)="uploadFile($event)" accept=".xlsx"/>
+<button mat-button (click)="uploadBtn.click()">Examinar...</button>
+
+<show-excel [data]="dataArray" [columnsToDisplay]="columnsToDisplay" [fileName]="fileName" (firstRowAsHeader)="setFirstRowAsHeader($event)"></show-excel>
+
+<button mat-button (click)="returnData()">Enviar</button>
+
 
 

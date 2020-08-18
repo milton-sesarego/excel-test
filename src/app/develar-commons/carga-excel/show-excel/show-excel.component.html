@@ -1,18 +1,16 @@
-<input id="uploadBtn" type="file" (change)="uploadFile($event)" 
-class="upload input-common" required />
 <mat-card>
     <mat-card-header>
-        <mat-card-title>Visor XLSX/CSV</mat-card-title>
+        <mat-card-title>Visor Excel</mat-card-title>
 
-        <mat-checkbox (change)="setHeader($event.checked)">Primera Fila Como Header</mat-checkbox>
+        <mat-checkbox (change)="setHeader($event.checked)">A partir de la segunda fila</mat-checkbox>
 
-        <mat-card-subtitle *ngIf = "asset">
-        Nombre de archivo: {{asset.assetId}}
+        <mat-card-subtitle>
+            Nombre del archivo: {{fileName}}
         </mat-card-subtitle>
 
     </mat-card-header>
 
-    <table mat-table [dataSource]="dataRows" class="mat-elevation-z8">
+    <table mat-table [dataSource]="data" class="mat-elevation-z8">
         <ng-container *ngFor="let col of columnsToDisplay" [matColumnDef]="col">
             <th mat-header-cell *matHeaderCellDef> {{col}} </th>
             <td mat-cell *matCellDef="let element"> {{element[col]}} </td>
@@ -22,3 +20,4 @@ class="upload input-common" required />
         <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
     </table>
 </mat-card>
+
